@@ -35,3 +35,13 @@ This project will lengthen shortened urls, shorten extended urls. It has a manag
 | https://www.tufan.com/casio/saat-p-1925865?merchantId=105064 | tf://?Page=Product&ContentId=1925865&MerchantId=105064 |
 | https://www.tufan.com/sr?q=elbise | tf://?Page=Search&Query=elbise |
 | https://www.tufan.com/Hesabim/#/Favoriler | tf://?Page=Home |
+
+### Short to Long
+
+| Request | Response |
+| --- | --- |
+| tf://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064 | https://www.tufan.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064 |
+| tf://?Page=Product&ContentId=1925865 | https://www.tufan.com/casio/saat-p-1925865 |
+| tf://?Page=Product&ContentId=1925865&CampaignId=439892 | https://www.tufan.com/casio/saat-p-1925865?boutiqueId=439892 |
+| tf://?Page=Search&Query=elbise | https://www.tufan.com/sr?q=elbise |
+| tf://?Page=Favoriler | https://www.tufan.com |
