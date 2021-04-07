@@ -1,0 +1,85 @@
+﻿{
+  "$schema": "http://cachemanager.michaco.net/schemas/cachemanager.json#",
+  "redis": [
+    {
+      "key": "redisConnection",
+      "connectionString": "localhost:6379,allowAdmin=true"
+    }
+  ],
+  "cacheManagers": [
+    {
+      "maxRetries": 3,
+      "name": "SmallDurationCache",
+      "retryTimeout": 5,
+      "updateMode": "Up",
+      "backplane": {
+        "key": "redisConnection",
+        "knownType": "Redis",
+        "channelName": "test"
+      },
+      "serializer": {
+        "knownType": "Json"
+      },
+      "handles": [
+        {
+          "knownType": "Dictionary",
+          "enablePerformanceCounters": false,
+          "enableStatistics": true,
+          "expirationMode": "Sliding",
+          "expirationTimeout": "0:0:23",
+          "isBackplaneSource": false,
+          "name": "simpleMemCache"
+        },
+        {
+          "knownType": "Redis",
+          "key": "redisConnection",
+          "isBackplaneSource": true,
+          "name": "redis",
+          "enablePerformanceCounters": false,
+          "enableStatistics": true
+        }
+      ]
+    },
+    {
+      "maxRetries": 3,
+      "name": "LongDurationCache",
+      "retryTimeout": 5,
+      "updateMode": "Up",
+      "backplane": {
+        "key": "redisConnection",
+        "knownType": "Redis",
+        "channelName": "test"
+      },
+      "serializer": {
+        "knownType": "Json"
+      },
+      "handles": [
+        {
+          "knownType": "Dictionary",
+          "enablePerformanceCounters": false,
+          "enableStatistics": true,
+          "expirationMode": "Sliding",
+          "expirationTimeout": "0:0:23",
+          "isBackplaneSource": false,
+          "name": "simpleMemCache"
+        },
+        {
+          "knownType": "Redis",
+          "key": "redisConnection",
+          "isBackplaneSource": true,
+          "name": "redis",
+          "enablePerformanceCounters": false,
+          "enableStatistics": true
+        }
+      ]
+    },
+    {
+      "name": "CommonCache",
+      "handles": [
+        {
+          "knownType": "Dictionary"
+        }
+      ]
+    }
+  ]
+}
